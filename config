@@ -1,0 +1,35 @@
+fullscreen = true
+font-family = Hack Nerd Font
+font-size = 16
+window-padding-x = 12,2
+window-padding-y = 4
+resize-overlay-duration = 4s 200ms
+theme = Ayu Mirage
+background = #000000
+foreground = #cbccc6
+selection-background = #33415e
+selection-foreground = #cbccc6
+cursor-color = #F3F3F3
+cursor-text = #1f2430
+cursor-style = bar
+cursor-style-blink = true
+palette = 0=#191e2a
+palette = 1=#ed8274
+palette = 2=#a6cc70
+palette = 3=#fad07b
+palette = 4=#6dcbfa
+palette = 5=#cfbafa
+palette = 6=#90e1c6
+palette = 7=#c7c7c7
+palette = 8=#686868
+palette = 9=#f28779
+palette = 10=#bae67e
+palette = 11=#ffd580
+palette = 12=#73d0ff
+palette = 13=#d4bfff
+palette = 14=#95e6cb
+palette = 15=#ffffff
+custom-shader-animation = true
+keybind = performable:ctrl+c=copy_to_clipboard
+
+
