@@ -2,16 +2,19 @@ local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("FantasqueSansM Nerd Font")
+config.font = wezterm.font("Hack Nerd Font")
 
-config.font_size = 22
+config.font_size = 15
 
 config.window_decorations = "RESIZE"
+config.colors = {
+	background = "black",
+}
 
 config.color_scheme = "Ef-Maris-Dark"
 
-config.window_background_opacity = 1
 config.macos_window_background_blur = 40
+config.max_fps = 120
 
 config.keys = {
 	{
@@ -26,6 +29,12 @@ config.window_background_image_hsb = {
 	hue = 1.0,
 	saturation = 1.0,
 }
+config.front_end = "Software"
 config.text_background_opacity = 0.9
+config.default_cursor_style = "BlinkingBar"
+config.cursor_blink_rate = 500
+config.cursor_blink_ease_in = "Linear"
+config.cursor_blink_ease_out = "Linear"
+config.animation_fps = 120
 
 return config
