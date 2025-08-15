@@ -15,6 +15,7 @@ keymaps.set("n", "<leader>nf", ":confirm edit ", { noremap = true, silent = true
 keymaps.set("n", "J", "mzJ`z", { noremap = true, silent = true })
 keymaps.set("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 keymaps.set("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+keymaps.set("n", "<C-e>", "<cmd>Yazi<CR>", { noremap = true, silent = true })
 
 keymaps.set("n", "<leader><leader>s", "<cmd>source %<CR>", { noremap = true, silent = true })
 keymaps.set("x", "<leader>p", [["_dP]], { noremap = true, silent = true })

@@ -216,6 +216,7 @@ return {
 			require("black-metal").setup({
 				theme = "dark-funeral", -- sets variant
 			})
+			vim.cmd([[colorscheme dark-funeral]])
 		end,
 	},
 
@@ -253,7 +254,6 @@ return {
 					delta = "#cfa774",
 				},
 			})
-			vim.cmd([[colorscheme vague]])
 		end,
 	},
 }
