@@ -1,0 +1,18 @@
+fullscreen = true
+font-family = Lilex Nerd Font
+font-size = 13
+window-padding-x = 14
+window-padding-y = 14
+resize-overlay-duration = 4s 200ms
+theme = catppuccin-macchiato
+background = #00000B
+selection-background = #33415e
+selection-foreground = #cbccc6
+cursor-color = #F3F3F3
+cursor-text = #1f2430
+cursor-style = bar
+cursor-style-blink = true
+custom-shader-animation = true
+keybind = performable:ctrl+c=copy_to_clipboard
+background-opacity = 0.85
+background-blur = 20

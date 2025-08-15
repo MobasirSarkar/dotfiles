@@ -1,0 +1,6 @@
+[mgr]
+show_hidden = true
+
+[opener]
+text = [{run = 'nvim "$@"', block = true}]
+edit = [{run = 'nvim "$@"', block = true}]

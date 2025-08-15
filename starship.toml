@@ -1,0 +1,208 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+$lua\
+$docker_context\
+$line_break$character"""
+
+palette = "black_metal_gorgoroth"
+
+[palettes.black_metal_gorgoroth]
+background = "#000000"
+foreground = "#c1c1c1"
+selection_background = "#c1c1c1"
+selection_foreground = "#000000"
+url_color = "#999999"
+cursor = "#c1c1c1"
+
+# Normal colors
+color0  = "#000000"
+color1  = "#5f8787"
+color2  = "#9b8d7f"
+color3  = "#8c7f70"
+color4  = "#888888"
+color5  = "#999999"
+color6  = "#aaaaaa"
+color7  = "#c1c1c1"
+
+# Bright colors
+color8  = "#333333"
+color9  = "#5f8787"
+color10 = "#9b8d7f"
+color11 = "#8c7f70"
+color12 = "#888888"
+color13 = "#999999"
+color14 = "#aaaaaa"
+color15 = "#c1c1c1"
+
+# Extended colors
+color16 = "#aaaaaa"
+color17 = "#444444"
+color18 = "#121212"
+color19 = "#222222"
+color20 = "#999999"
+color21 = "#999999"
+
+# OS Module
+[os]
+disabled = false
+style = "fg:foreground"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = ""
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+PopOS = ""
+RedHatEnterprise = "󱄛"
+
+# Username Module
+[username]
+show_always = true
+style_user = "fg:color4"
+style_root = "fg:color4"
+format = '[ $user ]($style)'
+
+# Local IP Module
+[localip]
+ssh_only = false
+style = "fg:color18"
+format = '[ $localipv4 ]($style)'
+disabled = false
+
+# Directory Module
+[directory]
+style = "fg:color3"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰝚 "
+"Pictures" = " "
+"Developer" = "󰲋 "
+
+# Git Branch Module
+[git_branch]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol $branch ](fg:color2)]($style)'
+
+# Git Status Module
+[git_status]
+style = "fg:color2"
+format = '[[($all_status$ahead_behind )](fg:color2)]($style)'
+
+# Node.js Module
+[nodejs]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# C Module
+[c]
+symbol = " "
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Rust Module
+[rust]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Go Module
+[golang]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# PHP Module
+[php]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Java Module
+[java]
+symbol = " "
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Kotlin Module
+[kotlin]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Haskell Module
+[haskell]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Python Module
+[python]
+symbol = ""
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Lua Module
+[lua]
+symbol = "󰢱"
+style = "fg:color2"
+format = '[[ $symbol( $version) ](fg:color2)]($style)'
+
+# Docker Context Module
+[docker_context]
+symbol = ""
+style = "fg:color4"
+format = '[[ $symbol( $context) ](fg:color4)]($style)'
+
+# Time Module
+[time]
+disabled = false
+time_format = "%R"
+style = "fg:color3"
+format = '[[  $time ](fg:color3)]($style)'
+
+# Line Break Module
+[line_break]
+disabled = false
+
+# Character Module
+[character]
+format = """
+[$symbol](fg:color6) """
+success_symbol = ' [➜](fg:color2)'
+error_symbol = ' [×](fg:color1)'
+
