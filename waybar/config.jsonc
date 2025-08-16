@@ -1,0 +1,91 @@
+{
+  "position": "bottom",
+  "spacing": 0,
+  "height": 0,
+  "reload_style_on_change": true,
+  "layer": "top",
+  "custom/separator": {
+    "format": "::",
+    "interval": "once",
+    "tooltip": false
+  },
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "cpu",
+    "custom/separator",
+    "memory",
+  ],
+  "modules-center": [
+    "sway/window"
+  ],
+  "modules-right": [
+    "tray",
+    "battery",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "custom/brightness"
+  ],
+  "sway/window": {
+    "max-length": 50
+  },
+  "tray": {
+    "spacing": 10,
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "cpu {usage}%",
+    "interval": 2,
+    "states": {
+      "critical": 90
+    }
+  },
+  "memory": {
+    "format": "mem {percentage}%",
+    "interval": 2,
+    "states": {
+      "critical": 80
+    }
+  },
+  "battery": {
+    "format": "bat {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "tooltip": false
+  },
+  "network": {
+    "format-wifi": "wifi {bandwidthDownBits}",
+    "format-ethernet": "enth {bandwidthDownBits}",
+    "format-disconnected": "no network",
+    "interval": 5,
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "max-volume": 150,
+    "format": "vol {volume}%",
+    "format-bluetooth": "vol {volume}%",
+    "nospacing": 1,
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+  "custom/brightness": {
+      "format": "☀ {brightness}%",
+      "exec": "brightnessctl get",
+      "interval": 2,
+      "on-click": "gnome-control-center display", 
+      "on-scroll-up": "brightnessctl set +5%",
+      "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "clock": {
+    "format": "{:%a %d %b  %H:%M:%S}"
+  }
+}
