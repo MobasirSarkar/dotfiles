@@ -214,7 +214,7 @@ return {
     priority = 1000,
     config = function()
       require("black-metal").setup({})
-      vim.cmd([[colorscheme burzum]])
+      vim.cmd([[colorscheme gorgoroth]])
     end,
   },
 
