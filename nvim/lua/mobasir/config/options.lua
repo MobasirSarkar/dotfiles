@@ -4,6 +4,7 @@ vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 30
 vim.o.clipboard = "unnamedplus"
+vim.o.termguicolors = true
 
 local opts = vim.opt
 
@@ -45,7 +46,6 @@ opts.hidden = true
 
 opts.backspace = { "start", "indent", "eol" }
 opts.scrolloff = 8
-opts.termguicolors = true
 
 opts.fillchars = { eob = " " }
 
@@ -55,11 +55,11 @@ opts.pumblend = 10
 opts.pumheight = 10
 
 if vim.fn.has("nvim-0.10") == 1 then
-  opts.smoothscroll = true
-  opts.foldtext = ""
+	opts.smoothscroll = true
+	opts.foldtext = ""
 else
-  opts.foldmethod = "indent"
-  opts.foldtext = "v:lua.require'mobasir.util'.ui.foldtext()"
+	opts.foldmethod = "indent"
+	opts.foldtext = "v:lua.require'mobasir.util'.ui.foldtext()"
 end
 
 vim.g.markdown_recommended_style = 0
