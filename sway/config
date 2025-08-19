@@ -9,10 +9,9 @@
 # VARIABLES / APPS
 # ----------------------------------------------------------------------
 set $mod Mod1
-set $super Mod4
+set $mod2 Mod4
 set $term kitty
-set $menu rofi -show drun
-set $chrome google-chrome-stable
+set $menu --no-startup-id rofi -modes "window,drun,combi" -show "combi" --widow-title "run" set $chrome google-chrome-stable
 set $browser $chrome
 set $discord discord
 
@@ -23,7 +22,7 @@ set $up k
 set $right l
 
 # Font
-font pango:IosevkaTerm Nerd Font Mono 12
+font pango:IosevkaTerm Nerd Font Mono:style=Regular 12
 
 # ----------------------------------------------------------------------
 # LOCK SCREEN
@@ -66,10 +65,19 @@ exec wl-paste --type image --watch cliphist store &
 # Input method (IME)
 exec --no-startup-id fcitx -d
 
+
+## Mako Notification
+exec mako
+
+## NWG Wrapper keybinds
+exec nwg-wrapper -t sway.pango -p right -mr 10
+exec nwg-wrapper -s quick.sh -a end -p left -ml 10 -mb 10 -r 60
+exec nwg-wrapper -s quote.sh -p left -a end -mb 10 -ml 260
 # ----------------------------------------------------------------------
 # OUTPUTS / DISPLAYS
 # ----------------------------------------------------------------------
 output eDP-1 mode 2560x1600@165Hz pos 2560 0 scale 1
+output * bg /home/beyond-mobasir/Pictures/wallpaper_city.png fill
 output DP-2 mode 2560x1440@100Hz pos 0 0 scale 1
 output HDMI-A-1 resolution 1920x1080 position 1920,0
 output * allow_tearing yes
@@ -111,6 +119,12 @@ bindsym $mod+d exec $discord
 bindsym $mod+Shift+d exec $menu
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+z exec slurp | grim -g - - | wl-copy
+bindsym $mod2+Shift+o exec ~/Applications/Obsidian-1.8.10_fba1d0b729c241551c40dd716307eacc.AppImage 
+
+bindsym $mod2+n exec makoctl dismiss
+
+# Dismiss all
+bindsym $mod+Shift+n exec makoctl dismiss -a
 
 floating_modifier $mod normal
 
@@ -223,6 +237,12 @@ bar {
     urgent_workspace   #222222 #222222 #9b8d7f
     binding_mode       #222222 #222222 #9b8d7f
   }
+}
+
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme "Adwaita-dark"
+    gsettings set $gnome-schema color-scheme prefer-dark
 }
 
 # ----------------------------------------------------------------------

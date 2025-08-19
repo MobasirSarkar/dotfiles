@@ -13,10 +13,10 @@ opts.relativenumber = true
 
 opts.autoindent = true
 
-opts.tabstop = 3
-opts.shiftwidth = 2
+opts.tabstop = 4
+opts.shiftwidth = 4
 opts.list = false
-opts.softtabstop = 3
+opts.softtabstop = 4
 opts.expandtab = true
 opts.smarttab = true
 opts.background = "dark"
@@ -55,11 +55,11 @@ opts.pumblend = 10
 opts.pumheight = 10
 
 if vim.fn.has("nvim-0.10") == 1 then
-	opts.smoothscroll = true
-	opts.foldtext = ""
+    opts.smoothscroll = true
+    opts.foldtext = ""
 else
-	opts.foldmethod = "indent"
-	opts.foldtext = "v:lua.require'mobasir.util'.ui.foldtext()"
+    opts.foldmethod = "indent"
+    opts.foldtext = "v:lua.require'mobasir.util'.ui.foldtext()"
 end
 
 vim.g.markdown_recommended_style = 0
