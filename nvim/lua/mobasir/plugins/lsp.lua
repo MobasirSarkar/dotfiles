@@ -21,6 +21,7 @@ return {
       --capabilities = vim.lsp.protocol.make_client_capabilities(),
       capabilities = require("blink.cmp").get_lsp_capabilities(),
       servers = {
+        html = {},
         erlangls = {},
         elixirls = {},
         pyright = {},
