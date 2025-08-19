@@ -9,14 +9,17 @@ return {
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				build = "make",
-				config = function()
-					require("telescope").load_extension("fzf")
-				end,
-				-- build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+			},
+			{
+				"jvgrootveld/telescope-zoxide",
+			},
+			{
+				"nvim-telescope/telescope-ui-select.nvim",
 			},
 		},
 		config = function()
-			require("telescope").setup({
+			local telescope = require("telescope")
+			telescope.setup({
 				defaults = {
 
 					border = {
@@ -56,9 +59,10 @@ return {
 				},
 			})
 
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("zoxide")
-			-- telescope setup
+			pcall(telescope.load_extensions, "fzf")
+			pcall(telescope.load_extensions, "zoxide")
+			pcall(telescope.load_extensions, "ui-select")
+
 			local builtin = require("telescope.builtin")
 
 			vim.keymap.set(
@@ -67,34 +71,13 @@ return {
 				"<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
 				{}
 			)
-			vim.keymap.set("n", "<leader>fb", ":Telescope file_files<cr>", {})
+			vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, {})
 			vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, {})
 			vim.keymap.set("n", "<leader>ws", builtin.lsp_workspace_symbols, {})
 			vim.keymap.set("n", "<leader>fz", ":Telescope zoxide list<CR>", {})
 			vim.keymap.set("n", "<leader>fv", builtin.help_tags, {})
-		end,
-	},
-	{
-		"jvgrootveld/telescope-zoxide",
-		config = function() end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").setup({
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({
-							-- even more opts
-						}),
-					},
-				},
-			})
-			-- To get ui-select loaded and working with telescope, you need to call
-			-- load_extension, somewhere after setup function:
-			require("telescope").load_extension("ui-select")
 		end,
 	},
 }
