@@ -208,17 +208,17 @@ return {
         end,
     },
     -- Using lazy.nvim
-    --[[ {
+    {
         "metalelf0/black-metal-theme-neovim",
         lazy = false,
         priority = 1000,
         config = function()
             -- 2. Setup and load the theme with transparency for the main bg only
             require("black-metal").setup({
-                theme = "gorgoroth", -- choose your desired variant
+                theme = "taake", -- choose your desired variant
                 variant = "dark",
                 transparent = true, -- main editor background transparent
-                plain_float = false, -- keep floats opaque
+                plain_float = true, -- keep floats opaque
                 alt_bg = false, -- no alternate (lighter) background
                 term_colors = true, -- use terminal colors
                 cursorline_gutter = true,
@@ -291,7 +291,7 @@ return {
                 end,
             })
         end,
-    }, ]]
+    },
 
     {
         "vague2k/vague.nvim",
@@ -350,7 +350,6 @@ return {
                     delta = "#c7a472", -- reusing dull ochre
                 },
             })
-            vim.cmd([[colorscheme vague]])
         end,
     },
 }
