@@ -11,6 +11,7 @@
 set $mod Mod1
 set $mod2 Mod4
 set $term kitty
+set $chrome google-chrome-stable
 set $menu --no-startup-id rofi -modes "window,drun,combi" -show "combi" --widow-title "run" set $chrome google-chrome-stable
 set $browser $chrome
 set $discord discord
@@ -65,7 +66,6 @@ exec wl-paste --type image --watch cliphist store &
 # Input method (IME)
 exec --no-startup-id fcitx -d
 
-
 ## Mako Notification
 exec mako
 
@@ -73,13 +73,14 @@ exec mako
 exec nwg-wrapper -t sway.pango -p right -mr 10
 exec nwg-wrapper -s quick.sh -a end -p left -ml 10 -mb 10 -r 60
 exec nwg-wrapper -s quote.sh -p left -a end -mb 10 -ml 260
+
 # ----------------------------------------------------------------------
 # OUTPUTS / DISPLAYS
 # ----------------------------------------------------------------------
-output eDP-1 mode 2560x1600@165Hz pos 2560 0 scale 1
-output * bg /home/beyond-mobasir/Pictures/wallpaper_city.png fill
-output DP-2 mode 2560x1440@100Hz pos 0 0 scale 1
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output * bg /home/beyond-mobasir/Pictures/wallpaper/wallhaven-exyw3o_3840x2400.png fill
+output HDMI-A-1 mode 1920x1080@100Hz pos 0 0 scale 1
+output DP-2 mode 2560x1440@100Hz pos 1920 0 scale 1
+output eDP-1 mode 2560x1600@165Hz pos 4480 0 scale 1
 output * allow_tearing yes
 output * max_render_time off
 
@@ -122,9 +123,10 @@ bindsym $mod+Shift+z exec slurp | grim -g - - | wl-copy
 bindsym $mod2+Shift+o exec ~/Applications/Obsidian-1.8.10_fba1d0b729c241551c40dd716307eacc.AppImage 
 
 bindsym $mod2+n exec makoctl dismiss
-
+bindsym $mod2+Shift+b exec bluetuith
+bindsym $mod2+v exec cliphist list | rofi -dmenu -p "Clipboard" -theme ~/.config/rofi/clipboard.rasi | cliphist decode | wl-copy
 # Dismiss all
-bindsym $mod+Shift+n exec makoctl dismiss -a
+bindsym $mod2+Shift+n exec makoctl dismiss -a
 
 floating_modifier $mod normal
 
@@ -132,6 +134,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'
 bindsym $mod+Shift+v exec notify-send "Volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | head -n1)"
 
+bindsym $mod+shift+t exec $lock
 ## Focus movement
 bindsym $mod+$left  focus left
 bindsym $mod+$down  focus down
@@ -218,13 +221,14 @@ bindsym Print exec grim
 # BAR CONFIG
 # ----------------------------------------------------------------------
 bar {
+  output HDMI-A-1
   swaybar_command waybar
   status_command while date +'%Y-%m-%d :: %X'; do sleep 1; done
 
   position bottom
   separator_symbol "::"
   font pango:Iosevka Term Mono Nerd Font 12
-  tray_output HDMI-A-0
+  tray_output HDMI-A-1
 
   colors {
     background #222222
@@ -246,12 +250,24 @@ exec_always {
 }
 
 # ----------------------------------------------------------------------
+# GTK / ENVIRONMENT VARIABLES
+# ----------------------------------------------------------------------
+
+exec_always export GTK_THEME="Adwaita:dark"
+exec_always export GTK_APPLICATION_PREFER_DARK_THEME=1
+exec_always export GTK_ICON_THEME="Adwaita"
+exec_always export XCURSOR_THEME="Adwaita"
+exec_always export XDG_CURRENT_DESKTOP="sway"
+
+# ----------------------------------------------------------------------
 # WINDOW RULES
 # ----------------------------------------------------------------------
 for_window {
-  [app_id="pavucontrol"] floating enable
+  [app_id="org.pulseaudio.pavucontrol"] floating enable, move position center, resize set 600 400
   [title="game-*"] floating enable, resize set 1920 1080
   [title="app-*"] floating enable, resize set 1920 1080
+  [app_id="gnome-calculator"] floating enable, resize set 400 500
+  [window_role="pop-up"] floating enable
 }
 
 # Workspace-specific gaps
@@ -262,8 +278,8 @@ workspace 5 gaps inner 20
 # ----------------------------------------------------------------------
 # LOOK & FEEL
 # ----------------------------------------------------------------------
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 client.focused          #9b8d7f #9b8d7f #000000 #9b8d7f #9b8d7f
 client.focused_inactive #202020 #202020 #9b8d7f #202020 #202020
 client.unfocused        #202020 #202020 #9b8d7f #202020 #202020
