@@ -263,7 +263,7 @@ exec_always export XDG_CURRENT_DESKTOP="sway"
 # WINDOW RULES
 # ----------------------------------------------------------------------
 for_window {
-  [app_id="org.pulseaudio.pavucontrol"] floating enable, move position center, resize set 600 400
+  [app_id="pavucontrol"] floating enable, move position center, resize set 600 400
   [title="game-*"] floating enable, resize set 1920 1080
   [title="app-*"] floating enable, resize set 1920 1080
   [app_id="gnome-calculator"] floating enable, resize set 400 500
