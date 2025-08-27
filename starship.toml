@@ -19,23 +19,30 @@ charging_symbol = "⇡"
 discharging_symbol = "⇣"
 
 
-[character] # The name of the module we are configuring is 'character'
-success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+[character]
+success_symbol = '[λ](bold green)'   # success
+error_symbol   = '[⊥](bold red)'     # error / contradiction
+vicmd_symbol   = '[∷](bold yellow)' # vim command mode
 
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-black"
 
+[git_commit]
+style = "bright-black"
+format = "[$hash]($style)"
+length = 7
+
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](bright-black) ($ahead_behind$stashed)]($style)"
+format = "[ $conflicted $untracked $modified $staged $renamed $deleted]($style) ($ahead_behind $stashed)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+conflicted = "CON"   # Conflict
+untracked  = "NEW"   # New/untracked files
+modified   = "MOD"   # Modified files
+staged     = "STG"   # Staged files
+renamed    = "REN"   # Renamed files
+deleted    = "DEL"   # Deleted files
+stashed    = "STS"   # Stashed changes
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
