@@ -47,6 +47,5 @@ export EDITOR="nvim"
 export GOPATH="$HOME/go"
 [ -d "$GOPATH" ] && PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
-# Tmux theme
-export TMUX_THEME="nord"
-
+alias vi="nvim"
+alias ls="eza --icons"
