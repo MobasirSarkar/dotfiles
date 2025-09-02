@@ -250,6 +250,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme "Adwaita-dark"
     gsettings set $gnome-schema color-scheme prefer-dark
+    gsettings set $gnome-schema icon-theme "Papirus"
 }
 
 # ----------------------------------------------------------------------
@@ -257,7 +258,7 @@ exec_always {
 # ----------------------------------------------------------------------
 exec_always export GTK_THEME="Adwaita:dark"
 exec_always export GTK_APPLICATION_PREFER_DARK_THEME=1
-exec_always export GTK_ICON_THEME="Adwaita"
+exec_always export GTK_ICON_THEME="Papirus"
 exec_always export XCURSOR_THEME="Adwaita"
 exec_always export XDG_CURRENT_DESKTOP="sway"
 
