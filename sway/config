@@ -77,17 +77,20 @@ exec nwg-wrapper -s quote.sh -p left -a end -mb 10 -ml 260
 output * bg /home/beyond-mobasir/Pictures/wallpaper/wallhaven-5g8xj7_3840x2160.png fill
 
 # External Type-C monitor
-output DP-2 mode 1920x1080@100Hz pos 0 0 scale 1
+# output DP-2 mode 1920x1080@100Hz pos 0 0 scale 1
+
+# External monitor via hdmi
+output HDMI-A-1 mode 1920x1080@100Hz pos 0 0 scale 1
 
 # Internal laptop display
 output eDP-1 mode 1920x1200@60Hz pos 1920 0 scale 1
 
-output HDMI-A-1 mode 1920x1080@100Hz pos 2560 0 scale 1
-
 output * allow_tearing yes
 output * max_render_time off
 
-workspace 1 output DP-2
+# workspace 1 output DP-2 
+workspace 1 output HDMI-A-1
+workspace 2 output eDP-1
 
 # ----------------------------------------------------------------------
 # IDLE CONFIG
