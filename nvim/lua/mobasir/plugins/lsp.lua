@@ -115,7 +115,6 @@ return {
                 clangd = {},
             },
         })
-
         vim.diagnostic.config({
             severity_sort = true,
             float = { border = "rounded", source = "if_many" },
@@ -141,12 +140,6 @@ return {
                     return diagnostic_message[diagnostic.severity]
                 end,
             },
-        })
-
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded",
-            max_width = 80,
-            focusable = true,
         })
     end,
 }

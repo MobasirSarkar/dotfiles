@@ -1,6 +1,5 @@
 return {
-    { "echasnovski/mini.nvim",              version = false },
-    { "Mohammed-Taher/AdvancedNewFile.nvim" },
+    { "echasnovski/mini.nvim", version = false },
 
     {
         "christoomey/vim-tmux-navigator",

@@ -1,5 +1,13 @@
 local keymaps = vim.keymap
 
+keymaps.set("n", "K", function()
+	vim.lsp.buf.hover({
+		border = "rounded",
+		max_width = 60,
+		width = 40,
+	})
+end)
+
 keymaps.set("n", "<leader>l", "<cmd>:Lazy<CR>", { noremap = true, silent = true })
 keymaps.set("n", "<leader>*", "<cmd>:wqa<CR>", { noremap = true, silent = true })
 
@@ -31,15 +39,15 @@ keymaps.set("n", "<leader>j", "<cmd>lprev<CR>zz", { noremap = true, silent = tru
 
 keymaps.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { noremap = true, silent = true })
 keymaps.set("n", "<leader>dus", function()
-    local widgets = require("dap.ui.widgets")
-    local sidebar = widgets.sidebar(widgets.scopes)
-    sidebar.open()
+	local widgets = require("dap.ui.widgets")
+	local sidebar = widgets.sidebar(widgets.scopes)
+	sidebar.open()
 end, { noremap = true, silent = true })
 
 keymaps.set("n", "<leader>dgt", function()
-    require("dap-go").debug_test()
+	require("dap-go").debug_test()
 end, { noremap = true, silent = true })
 
 keymaps.set("n", "<leader>dgl", function()
-    require("dap-go").debug_last()
+	require("dap-go").debug_last()
 end, { noremap = true, silent = true })
