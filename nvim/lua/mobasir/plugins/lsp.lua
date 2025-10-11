@@ -112,7 +112,14 @@ return {
                         },
                     },
                 },
-                clangd = {},
+                clangd = {
+                    cmd = {
+                        "clangd",
+                        "--compile-commands-dir=build",
+                    },
+                },
+                cmake = {},
+                jsonls = {},
             },
         })
         vim.diagnostic.config({
