@@ -1,40 +1,27 @@
 * {
-  border: none;
-  border-radius: 0;
   min-height: 0;
-  font-family: "IosevkaTerm Nerd Font Mono";
-  font-size: 16px;
-  padding: 0;
+  min-width: 0;
+  font-family:"Iosevka Nerd Font";
+  font-size: 14px;
 }
 
 window#waybar {
-  background: #202020;
-  color: #9b8d7f;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  background-color: #111111;
 }
 
-tooltip {
-  background-color: #202020;
-}
-
-#clock,
-#tray,
-#cpu,
-#memory,
-#battery,
-#network,
-#pulseaudio {
-  margin: 2px 2px 0px 0px;
-  padding: 2px 8px;
-}
-
-/* Workspaces buttons */
 #workspaces button {
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem 0.25rem;
+  border-radius: 3px;
+  background-color: #111111;
   color: #9b8d7f;
 }
 
-#workspaces button.focused {
-  background-color: #9b8d7f;
-  color: #202020;
+#workspaces button:hover {
+  color: #9b8d7f;
+  background-color: #111111;
 }
 
 #workspaces button.active {
@@ -42,9 +29,96 @@ tooltip {
   color: #9b8d7f;
 }
 
-/* Modules styling */
-#battery, #tray, #clock, #cpu, #pulseaudio, #memory {
+#workspaces button.urgent {
+  background-color: #202020;
   color: #9b8d7f;
-  font-size: 18px;       /* ↑ Make icons bigger */
-  padding: 2px 10px;      /* ↑ Add spacing around icons */
+}
+
+#clock,
+#pulseaudio,
+#bluetooth,
+#custom-logo,
+#custom-power,
+#custom-notification,
+#cpu,
+#tray,
+#memory,
+#window,
+#battery,
+#backlight,
+#network,
+#mpris {
+  padding: 0.3rem 0.4rem;
+  margin: 0.3rem 0.3rem;
+  border-radius: 3px;
+  background-color: #202020;
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  color: #94e2d5;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#clock {
+  color: #74c7ec;
+}
+
+#clock.simpleclock {
+  color: #89b4fa;
+}
+
+#window {
+  color: #cdd6f4;
+  background-color: #111111;
+}
+
+#pulseaudio {
+  color: #b4befe;
+}
+
+#pulseaudio.muted {
+  color: #a6adc8;
+}
+
+#custom-logo {
+  color: #89b4fa;
+}
+
+#custom-power {
+  color: #f38ba8;
+  padding: 0.3rem 0.6rem;
+}
+
+#bluetooth {
+    color: #5f8787;
+    font-size: 16px;
+    padding: 0.3rem 0.6rem;
+}
+
+#battery {
+    font-size: 15px;
+    color: #a6adc8;
+    padding: 0.3rem 0.5rem;
+}
+
+#network {
+ color: #c1c1c1;
+
+}
+
+tooltip {
+  background-color: #181825;
+  border: 1px solid #8c7f70;
 }

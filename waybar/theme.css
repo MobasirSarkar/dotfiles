@@ -1,0 +1,16 @@
+/* ----- Base Palette ----- */
+@define-color background  #111111;
+@define-color foreground  #c1c1c1;
+@define-color accent      #5f8787;
+@define-color highlight   #9b8d7f;
+@define-color border      #333333;
+@define-color inactive    #121212;
+
+@define-color color0  #000000;
+@define-color color1  #5f8787;
+@define-color color2  #9b8d7f;
+@define-color color3  #8c7f70;
+@define-color color4  #888888;
+@define-color color5  #999999;
+@define-color color6  #aaaaaa;
+@define-color color7  #c1c1c1;
