@@ -17,10 +17,11 @@ window > box {
 }
 
 #window {
-    background-color: rgba(32,32,32,0.65);
+    background-color: rgba(32,32,32,0.45);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 4px;
-    padding: 5px 10px;
-    margin: 2.5px 0;
+    padding: 4px 8px;       /* reduced from 5px 10px */
+    margin: 2px 4px;
 }
 
 window#waybar.empty #window {
@@ -30,19 +31,20 @@ window#waybar.empty #window {
 .modules-left,
 .modules-right,
 .modules-center {
-    padding: 2.5px;
+    padding: 2px;           /* slightly reduced */
 }
 
 #workspaces {
-    background-color: rgba(32,32,32,0.65);
+    background-color: rgba(32,32,32,0.45);
+    border: 1px solid rgba(255,255,255,0.2);
     border-radius: 4px;
-    padding: 3px 6px;
-    margin: 2.5px 0;
+    padding: 2.5px 5px;     /* smaller height */
+    margin: 2px 4px;
 }
 
 #workspaces button {
     min-height: 0;
-    padding: 0 7px;
+    padding: 0 6px;         /* slightly smaller width */
     margin-right: 2px;
     color: #f5e0dc;
 }
@@ -83,14 +85,16 @@ window#waybar.empty #window {
 #tray,
 #battery,
 #backlight {
-    background-color: rgba(32,32,32,0.65);
+    background-color: rgba(32,32,32,0.45);
     border-radius: 4px;
-    padding: 5px 10px;
-    margin: 2.5px 0;
+    padding: 4px 8px;       /* smaller vertical padding */
+    margin: 2px 2px;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* Individual color overrides */
 #custom-launcher { color: #89dceb; padding-right: 12px }
+#custom-power { color: #89dceb; padding-right: 12px }
 #cpu, #bluetooth { color: #f2cdcd; }
 #memory { color: #fab387; }
 #wireplumber, #pulseaudio { color: #f9e2af; }
