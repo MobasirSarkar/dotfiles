@@ -1,7 +1,7 @@
 {
     "reload_style_on_change": true,
     "layer": "top",
-    "position": "bottom",
+    "position": "top",
     "modules-left": [
         "custom/launcher",
         "hyprland/workspaces",
@@ -11,7 +11,7 @@
     "modules-center": [
         "hyprland/window"
     ],
-    "spacing": 4,
+    "spacing": 1,
     "modules-right": [
         "tray",
         "network#spd",

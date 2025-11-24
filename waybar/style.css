@@ -1,31 +1,34 @@
 * {
-    font-family: "Iosevka Nerd Font";
+    font-family: 'CaskaydiaMono Nerd Font';
     font-weight: bold;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0.45); /* translucent black */
+    background-color: rgba(0, 0, 0, 0); /* translucent black */
+    margin-left: 20px;    /* space from the left screen edge */
+    margin-right: 20px;   
 }
 
 window > box {
     margin-top: 0px;
-    margin-left: 6px;
-    margin-right: 6px;
+    margin-left: 2px;
+    margin-right: 2px;
     padding-left: 3px;
     padding-right: 3px;
 }
 
 #window {
-    background-color: rgba(32,32,32,0.45);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 4px;
+    background-color: rgba(0,0,0,1);
+    /* border: 1px solid rgba(255,255,255,0.2); */
+    border-radius: 2px;
     padding: 4px 8px;       /* reduced from 5px 10px */
     margin: 2px 4px;
 }
 
 window#waybar.empty #window {
     background: rgba(12, 12, 12, 0);
+    border: 0px
 }
 
 .modules-left,
@@ -35,8 +38,8 @@ window#waybar.empty #window {
 }
 
 #workspaces {
-    background-color: rgba(32,32,32,0.45);
-    border: 1px solid rgba(255,255,255,0.2);
+    background-color: rgba(0,0,0,1);
+    /* border: 1px solid rgba(255,255,255,0.2); */
     border-radius: 4px;
     padding: 2.5px 5px;     /* smaller height */
     margin: 2px 4px;
@@ -85,11 +88,11 @@ window#waybar.empty #window {
 #tray,
 #battery,
 #backlight {
-    background-color: rgba(32,32,32,0.45);
-    border-radius: 4px;
-    padding: 4px 8px;       /* smaller vertical padding */
+    background-color: rgba(0,0,0,1);
+    /* border: 1px solid rgba(255,255,255,0.2); */
+    border-radius: 2px;
+    padding: 3px 6px;       /* smaller vertical padding */
     margin: 2px 2px;
-    border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* Individual color overrides */
