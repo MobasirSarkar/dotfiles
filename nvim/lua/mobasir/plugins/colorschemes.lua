@@ -249,10 +249,9 @@ return {
 				colors = {},
 				highlights = {},
 			})
-			require("black-metal").load()
 
 			-- now apply custom highlights
-			vim.defer_fn(function()
+			--[[ vim.defer_fn(function()
 				local float_bg = "#1d1a23"
 				local set_hl = vim.api.nvim_set_hl
 
@@ -289,7 +288,7 @@ return {
 						vim.cmd("lua require('yazi').apply_custom_highlights()")
 					end, 10)
 				end,
-			})
+			}) ]]
 		end,
 	},
 
@@ -350,6 +349,7 @@ return {
 					delta = "#c7a472", -- reusing dull ochre
 				},
 			})
+			vim.cmd([[colorscheme vague]])
 		end,
 	},
 }
