@@ -1,0 +1,78 @@
+prefer-no-csd
+
+include "rules.kdl"
+include "autostart.kdl"
+include "keybindings.kdl"
+include "ui.kdl"
+include "output.kdl"
+
+// ========================================
+// INPUT CONFIGURATION
+// ========================================
+
+environment { GTK_THEME "Adwaita-dark" }
+
+input {
+    focus-follows-mouse max-scroll-amount="0%"
+    touch
+    tablet
+    keyboard {
+        repeat-delay 350
+        repeat-rate 50
+        numlock
+        track-layout "global"
+        xkb {
+                layout ""
+                model ""
+                rules ""
+                variant ""
+            }
+    }
+
+    touchpad {
+        natural-scroll
+        accel-profile "flat"
+        click-method  "clickfinger"
+    }
+
+    mouse {
+    }
+    trackpoint {
+    }
+}
+
+
+// ========================================
+// OUTPUT CONFIGURATION
+// ========================================
+// ========================================
+// LAYOUT SETTINGS
+// ========================================
+
+// ========================================
+// STARTUP APPLICATIONS
+// ========================================
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "waybar"
+spawn-at-startup "mako"
+spawn-sh-at-startup "swww img ~/Pictures/wallpaper/pixel_sakura.gif --transition-fps 60"
+spawn-sh-at-startup "vicinae server"
+
+// ========================================
+// HOTKEY OVERLAY
+// ========================================
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+// ========================================
+// SCREENSHOT SETTINGS
+// ========================================
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// ========================================
+// ANIMATIONS
+// ======================================== 

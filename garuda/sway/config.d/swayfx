@@ -1,0 +1,24 @@
+### SwayFX appearance
+
+corner_radius 0
+
+# Shadows (palette-matched)
+shadows enable
+shadows_on_csd off
+shadow_blur_radius 8
+shadow_color #9b8d7f66
+
+# Blur
+blur disable
+blur_xray off
+
+# Inactive dim
+default_dim_inactive 0.4
+dim_inactive_colors.unfocused #202020FF
+dim_inactive_colors.urgent #ebcb8bFF
+
+# Waybar
+layer_effects "waybar" blur disable; shadows disable; corner_radius 0
+
+# Scratchpad
+scratchpad_minimize disable

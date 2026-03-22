@@ -1,0 +1,102 @@
+command_timeout = 1500
+
+format = """
+$os$username$hostname $directory $git_branch$git_status $golang $nodejs $java $kotlin $cmd_duration
+$character """
+
+palette = "electron"
+
+[palettes.electron]
+blue = "#61afef"
+green = "#98c379"
+red = "#e06c75"
+yellow = "#e5c07b"
+purple = "#c678dd"
+cyan = "#56b6c2"
+gray = "#5c6370"
+white = "#abb2bf"
+
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol   = "[⊥](bold red)"
+vicmd_symbol   = "[∷](bold yellow)"
+
+[cmd_duration]
+format = "[$duration](gray)"
+min_time = 500
+
+[directory]
+style = "cyan"
+format = "[$path]($style) "
+truncation_length = 3
+
+[directory.substitutions]
+Documents = "󰈙 "
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[git_branch]
+symbol = " "
+format = "[$symbol$branch](blue) "
+
+[git_status]
+conflicted = "⚔"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?"
+stashed = ""
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+format = "([$all_status$ahead_behind](red)) "
+
+[hostname]
+format = "[@$hostname](yellow) "
+ssh_only = true
+ssh_symbol = " "
+
+[os]
+disabled = false
+format = "[$symbol](purple) "
+
+[username]
+format = "[$user](white)"
+show_always = true
+
+# Languages
+
+[golang]
+symbol = " "
+format = "[$symbol](cyan) "
+
+[c]
+symbol = " "
+format = "[$symbol](blue) "
+
+[dotnet]
+symbol = " "
+format = "[$symbol](purple) "
+
+[java]
+symbol = " "
+format = "[$symbol](yellow) "
+
+[kotlin]
+symbol = " "
+format = "[$symbol](purple) "
+
+[nodejs]
+symbol = " "
+format = "[$symbol($version)](green) "
+
+[os.symbols]
+Garuda = " "
+Arch = " "
+Ubuntu = " "
+Debian = " "
+Fedora = " "
+Macos = " "
+Windows = "󰍲 "

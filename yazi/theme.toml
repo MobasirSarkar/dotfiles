@@ -1,0 +1,36 @@
+# Yazi theme: Base16 Black Metal (Gorgoroth)
+# Scheme by metalelf0 (https://github.com/metalelf0)
+
+[mgr]
+cwd = { fg = "#c1c1c1", bg = "#000000", bold = true }
+preview = { fg = "#c1c1c1", bg = "#121212" }
+border = { fg = "#333333", bg = "#000000" }
+selection = { fg = "#000000", bg = "#c1c1c1" }
+
+[status]
+normal = { fg = "#c1c1c1", bg = "#000000" }
+select = { fg = "#000000", bg = "#c1c1c1" }
+error = { fg = "#5f8787", bg = "#000000" }
+
+[mode]
+normal = { fg = "#c1c1c1", bg = "#000000" }
+select = { fg = "#c1c1c1", bg = "#121212" }
+error = { fg = "#5f8787", bg = "#000000" }
+
+[filetype]
+dir  = { fg = "#5f8787", bold = true }
+exe  = { fg = "#9b8d7f", bold = true }
+file = { fg = "#c1c1c1" }
+link = { fg = "#888888" }
+fifo = { fg = "#8c7f70" }
+sock = { fg = "#aaaaaa" }
+block = { fg = "#999999" }
+char = { fg = "#444444" }
+
+[progress]
+bar = { fg = "#5f8787", bg = "#333333" }
+percent = { fg = "#c1c1c1" }
+
+[tab]
+active = { fg = "#c1c1c1", bg = "#000000", bold = true }
+inactive = { fg = "#999999", bg = "#121212" }

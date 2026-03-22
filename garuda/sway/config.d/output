@@ -1,0 +1,14 @@
+### Output configuration
+#
+# Example configuration:
+#
+output "HDMI-A-1" resolution 1920x1080@100Hz position 0,0
+
+output "eDP-1" {
+    scale 1
+    scale_filter linear
+    subpixel rgb
+}
+#
+exec_always ~/.config/sway/scripts/hidpi_1.5.sh
+

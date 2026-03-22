@@ -1,0 +1,14 @@
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+spawn-at-startup "mako"
+
+spawn-at-startup "foot --server"
+
+spawn-at-startup "wl-paste --type text --watch cliphist store"
+spawn-at-startup "wl-paste --type image --watch cliphist store"
+
+spawn-at-startup "swww-daemon"
+
+spawn-at-startup "nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10"
+
+spawn-at-startup "kanshi"

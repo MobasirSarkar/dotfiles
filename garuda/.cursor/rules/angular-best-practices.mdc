@@ -1,0 +1,126 @@
+---
+description: 
+globs: "**/*.ts, **/*.html"
+alwaysApply: false
+---
+
+# Angular v20+ Best Practices
+
+You are an expert Angular developer. Apply every rule below unconditionally for all code generation, refactoring, and review. The stack is **Angular v20+**, **PrimeNG (latest)**, and **TailwindCSS**.
+
+## 1. Component Fundamentals
+
+- Do **NOT** set `standalone: true` — it is the default in v20+.
+- Always set `changeDetection: ChangeDetectionStrategy.OnPush`.
+- Use `input()` / `output()` functions — never `@Input()` / `@Output()` decorators.
+- Use `inject()` at field declaration level — never constructor injection.
+- Place host bindings in the `host: {}` object of `@Component` or `@Directive` — never `@HostBinding` / `@HostListener`.
+- Use paths relative to the TS file for `templateUrl` and `styleUrl`.
+
+```typescript
+// ✅ Good
+@Component({
+  selector: 'app-user-card',
+  templateUrl: './user-card.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: { class: 'block' },
+})
+export class UserCardComponent {
+  user = input.required<User>();
+  selected = output<User>();
+  private svc = inject(UserService);
+}
+
+// ❌ Bad
+@Component({ standalone: true, ... })
+export class UserCardComponent {
+  @Input() user!: User;
+  @Output() selected = new EventEmitter<User>();
+  constructor(private svc: UserService) {}
+}
+```
+
+## 2. Templates — Mandatory Rules
+
+- Use `@if`, `@for`, `@switch` — never `*ngIf`, `*ngFor`, `*ngSwitch`.
+- Always provide `track` in `@for`: `@for (item of items(); track item.id)`.
+- Use `[class.name]` or `[class]` binding — never `[ngClass]`.
+- Use `[style.prop]` or `[style]` binding — never `[ngStyle]`.
+- No arrow functions in templates — move logic to the component class.
+- No globals in templates (`new Date()`, `Math`, etc.) — expose via a method or signal.
+- Use the `async` pipe for observables.
+
+```html
+<!-- ✅ Good -->
+@if (user()) {
+  <p-card [class]="isActive() ? 'border-primary' : ''">
+    @for (item of items(); track item.id) {
+      <li>{{ item.name }}</li>
+    }
+  </p-card>
+}
+
+<!-- ❌ Bad -->
+<p-card *ngIf="user" [ngClass]="{ 'border-primary': isActive }">
+  <li *ngFor="let item of items">{{ item.name }}</li>
+</p-card>
+```
+
+## 3. State Management
+
+- `signal()` for writable local state.
+- `computed()` for all derived state — never recalculate in the template.
+- `update()` or `set()` to mutate signals — never `mutate()`.
+- `effect()` only for genuine side effects (DOM interop, logging) — not for data derivation.
+
+```typescript
+// ✅ Good
+count = signal(0);
+doubled = computed(() => this.count() * 2);
+
+increment() {
+  this.count.update(v => v + 1);
+}
+
+// ❌ Bad — derived state in template
+// <span>{{ count() * 2 }}</span>
+
+// ❌ Bad — effect for derivation
+effect(() => { this.doubled.set(this.count() * 2); });
+```
+
+## 4. UI & Styling
+
+- **PrimeNG**: always use PrimeNG components when a native equivalent exists.
+- Use `class` attribute (not `styleClass`) on PrimeNG components.
+- **TailwindCSS** for all layout, spacing, and typography — no custom SCSS.
+- No `::ng-deep` — use PrimeNG PassThrough (`pt`) API for deep customization.
+- Only Tailwind palette colors — no arbitrary color values.
+
+```html
+<!-- ✅ Good -->
+<p-button
+  label="Save"
+  class="w-full"
+  [pt]="{ root: { class: 'rounded-lg' } }"
+/>
+
+<!-- ❌ Bad -->
+<p-button styleClass="my-btn" />
+<style> ::ng-deep .my-btn { border-radius: 8px; } </style>
+```
+
+## 5. Accessibility
+
+- All components must pass AXE checks and meet WCAG AA minimums.
+- Interactive elements need `aria-label` / `aria-labelledby` when text is not visible.
+- Manage focus explicitly after dynamic content changes.
+
+```html
+<!-- ✅ Good -->
+<p-button icon="pi pi-close" aria-label="Close dialog" (click)="close()" />
+
+<div role="status" aria-live="polite">
+  @if (saved()) { <span>Changes saved</span> }
+</div>
+```
