@@ -1,2 +1,2 @@
-vim.opt.termguicolors = true
-require("mobasir")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
