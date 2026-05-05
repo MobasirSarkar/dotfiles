@@ -1,0 +1,30 @@
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+spawn-at-startup "mako"
+
+spawn-at-startup "foot --server"
+
+spawn-at-startup "wl-paste --type text --watch cliphist store"
+spawn-at-startup "wl-paste --type image --watch cliphist store"
+
+spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
+
+spawn-at-startup "nwg-drawer -r -c 7 -is 90 -mb 10 -ml 50 -mr 50 -mt 10"
+
+spawn-at-startup "kanshi"
+spawn-at-startup "swayidle" "-w" "before-sleep" "gtklock -d"
+
+spawn-at-startup "systemctl --user import-environment WAYLAND_DISPLAY XDG_RUNTIME_DIR DBUS_SESSION_BUS_ADDRESS"
+
+spawn-at-startup "dbus-update-activation-environment" "--systemd" \
+  "WAYLAND_DISPLAY" \
+  "XDG_CURRENT_DESKTOP=niri" \
+  "XDG_SESSION_DESKTOP=niri"
+
+spawn-at-startup "systemctl" "--user" "import-environment" \
+  "WAYLAND_DISPLAY" \
+  "XDG_RUNTIME_DIR" \
+  "DBUS_SESSION_BUS_ADDRESS" \
+  "XDG_CURRENT_DESKTOP" \
+  "XDG_SESSION_DESKTOP"

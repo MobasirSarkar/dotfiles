@@ -7,9 +7,9 @@ LOCK_SCRIPT=~/.config/niri/lock_with_effects.sh
 choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | fuzzel --dmenu)
 
 case "$choice" in
-    Lock) "$LOCK_SCRIPT" ;; # CORRECTED: Removed the problematic "./" prefix
-    Logout) niri msg action quit ;;
-    Suspend) systemctl suspend ;;
-    Reboot) systemctl reboot ;;
-    Shutdown) systemctl poweroff ;;
+Lock) "$LOCK_SCRIPT" ;; # CORRECTED: Removed the problematic "./" prefix
+Logout) niri msg action quit ;;
+Suspend) systemctl suspend ;;
+Reboot) systemctl reboot ;;
+Shutdown) systemctl poweroff ;;
 esac

@@ -1,0 +1,69 @@
+window-rule {
+    match app-id=r#"^(calamares|org\.blueman\.Manager|xsensors|galculator|yad|pavucontrol|org\.pulseaudio\.pavucontrol|blueman-manager|garuda-rani|garuda-assistant|garuda-gamer|garuda-settings-manager|garuda-network-assistant|garuda-boot-options|setup-assistant|org\.keepassxc\.KeePassXC)$"#
+    open-floating true
+}
+
+window-rule {
+    match title=r#"^(Picture-in-Picture|Save File|File Operation Progress|waybar_.*)$"#
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^(kitty|ghostty)$"#
+    opacity 0.95
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+window-rule {
+    draw-border-with-background false
+}
+
+window-rule {
+    match app-id="blueberry"
+    match is-focused=true
+    open-floating true
+}
+
+window-rule {
+    geometry-corner-radius 0
+    clip-to-geometry true
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.95
+}
+
+window-rule {
+    match app-id="org.pulseaudio.pavucontrol"
+    open-floating true
+    default-column-width { proportion 0.5; }
+}
+
+window-rule {
+    match is-floating=true
+
+    shadow {
+        on
+    }
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
