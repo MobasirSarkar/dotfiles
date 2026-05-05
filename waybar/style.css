@@ -1,186 +1,186 @@
-/* =========================
-   GLOBAL
-   ========================= */
+/* Reset all styles */
 * {
-    background-color: transparent;
-    color: #d8dee9;
+    color: #f8f9fa;
+    /* Off-white for general text */
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "Iosevka Nerd Font";
-    font-size: 14px;     /* back to original size */
+    font-family: "Iosevka", "JetBrainsMono Nerd Font";
+    font-size: 15px;
     font-weight: 600;
 }
 
-/* =========================
-   WAYBAR WINDOW
-   ========================= */
-window#waybar {
-    background-color: rgba(48, 52, 70, 0.95);
-    border-bottom: 1px solid #3b4252;
-
-    /* ONLY left & right margin */
-    margin-left: 32px;
-    margin-right: 32px;
+/* The whole bar - Floating Minimalist Black */
+#waybar {
+    background-color: rgba(0, 0, 0, 0.93);
+    /* 60% opacity */
+    margin: 8px 12px 0 12px;
+    /* Rounded corners */
+    padding: 2px 8px;
+    /* Internal padding for modules */
 }
 
-/* =========================
-   LEFT SECTION
-   ========================= */
-.modules-left {
-    margin-left: 0px;
-}
-
-#custom-launcher {
-    padding: 0 2px;
-    margin-right: 5px;
-    margin-left: 5px;
-    color: #88c0d0;
-}
-
-#custom-launcher:hover {
-    background-color: #3b4252;
-    transition: all 0.3s ease;
-}
-
-#workspaces {
-    margin-left: 0px;
-}
-
-#window {
-    padding: 0 6px;
-    margin-left: 2px;
-    color: #81a1c1;
-    font-weight: 500;
-    font-style: italic;
-}
-
-#workspaces button {
-    padding: 3 3px;
+/* Module styles - Spacing and hover */
+#window,
+#network,
+#privacy,
+#custom-updates,
+#custom-pacman,
+#custom-keyboard-layout,
+#cpu,
+#temperature,
+#disk,
+#memory,
+#wireplumber,
+#battery,
+#idle_inhibitor,
+#backlight,
+#bluetooth,
+#tray,
+#clock,
+#custom-settings,
+#custom-power,
+#custom-reboot,
+#custom-reboot-uefi,
+#custom-log-off,
+#custom-suspend,
+#custom-lock {
+    padding: 0 10px;
     margin: 0;
-    min-width: 12px;
-    color: #4c566a;
-    background-color: transparent;
-    border-radius: 1px;
+}
+
+#window:hover,
+#network:hover,
+#cpu:hover,
+#memory:hover,
+#clock:hover,
+#battery:hover,
+#wireplumber:hover {
+    color: #ffffff;
+    /* Subtle white highlight on hover */
     transition: all 0.2s ease;
 }
 
-#workspaces button.active {
-    color: #d8dee9;
-    background-color: #4c566a;
-    font-weight: 700;
+/* Specific Pastel Icon Colors */
+
+/* Left - Workspaces & Launcher */
+#custom-launcher {
+    color: #A0E7FF;
+    /* Pastel Sky */
+    padding-left: 15px;
+    margin-right: 10px;
+    /* Gap between M and workspaces */
+}
+
+#workspaces button {
+    color: #495057;
+    /* Muted gray for inactive */
+    padding: 0 4px;
+    /* Reduced width by 50% */
+    margin: 4px 1px;
+    border-radius: 0;
+    /* Sharp edges */
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+    color: #000000;
+    /* Dark text */
+    background: #00B9A1;
+    /* Solid Mint block */
+    font-weight: 800;
 }
 
 #workspaces button:hover {
-    background-color: transparent;
-    color: #81a1c1;
+    background-color: #5f8787;
+    color: #ffffff;
 }
 
-/* =========================
-   CENTER SECTION
-   ========================= */
+.module:hover {
+    background-color: #5f8787;
+}
+
+/* Center - Clock */
 #clock {
-    padding: 0 6px;
-    font-weight: 600;
-    font-size: 12px;
-    color: #d8dee9;
+    color: #C197FF;
+    /* Pastel Lavender */
 }
 
-#clock:hover {
-    background-color: #3b4252;
-}
-
-/* =========================
-   RIGHT SECTION
-   ========================= */
-.modules-right {
-    margin-right: 14px;
-}
-
-#tray {
-    padding: 0 3px;
-    margin-right: 1px;
-}
-
-#tray > .passive {
-    opacity: 0.6;
-}
-
-#tray > .needs-attention {
-    background-color: #d08770;
-}
-
-#pulseaudio {
-    padding: 0 3px;
-    margin-right: 1px;
-}
-
-#pulseaudio:hover {
-    background-color: #3b4252;
-}
-
-#pulseaudio.muted {
-    color: #bf616a;
-}
-
+/* Right - System Resources (The Resource Drawer) */
 #cpu {
-    padding: 0 3px;
-    margin-right: 1px;
+    color: #FFCCBB;
 }
 
-#cpu:hover {
-    background-color: #3b4252;
-}
-
+/* Pastel Peach */
 #memory {
-    padding: 0 3px;
-    margin-right: 1px;
+    color: #FBE7C6;
 }
 
-#memory:hover {
-    background-color: #3b4252;
+/* Pastel Cream */
+#temperature {
+    color: #FFAEBC;
 }
 
-#custom-power {
-    padding: 3 8px;
-    margin-left: 0px;
-    color: #d8dee9;
-    font-size: 13px;
-    font-weight: 700;
+/* Pastel Pink */
+#disk {
+    color: #A0E7FF;
 }
 
-#custom-power:hover {
-    background-color: #bf616a;
-    color: #2e3440;
-    transition: all 0.3s ease;
+/* Pastel Sky */
+
+/* Right - Utilities */
+#wireplumber {
+    color: #B4F8C8;
 }
 
-/* =========================
-   SEPARATORS
-   ========================= */
+/* Pastel Mint */
+#battery {
+    color: #C197FF;
+}
+
+/* Pastel Lavender */
+#network {
+    color: #A0E7FF;
+}
+
+/* Pastel Sky */
+#bluetooth {
+    color: #B4F8C8;
+}
+
+/* Separators - Minimalist Muted */
 #custom-sep0,
 #custom-sep1,
 #custom-sep2,
 #custom-sep3,
 #custom-sep4,
-#custom-sep5 {
-    padding: 0 1px;
-    margin: 4;
-    color: #4c566a;
-    font-size: 12px;
+#custom-sep5,
+#custom-sep6 {
+    color: #343a40;
+    font-weight: 200;
 }
 
-/* =========================
-   TOOLTIPS
-   ========================= */
-tooltip {
-    background-color: #3b4252;
-    border: 1px solid #4c566a;
-    border-radius: 4px;
-    padding: 4px 8px;
+/* Trays and Power */
+#tray {
+    margin-right: 10px;
 }
 
-tooltip label {
-    color: #d8dee9;
-    font-size: 10px;
+#custom-power {
+    color: #FFAEBC;
+    padding-right: 15px;
+}
+
+/* Critical States - Still Pastel but Bright */
+#battery.warning {
+    color: #FFCCBB;
+}
+
+#battery.critical:not(.charging) {
+    color: #bf616a;
+}
+
+#cpu.critical,
+#memory.critical {
+    color: #bf616a;
 }
