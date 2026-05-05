@@ -1,0 +1,23 @@
+## docker images build command
+for svc in auth eta gateway ingester fleet attendance asynctask notifier report; do
+  docker buildx build \
+    --platform linux/amd64 \
+    --build-arg BINARY_PATH=bin/$svc \
+    -t ${svc}-stage:v1 \
+    -f scripts/Dockerfile \
+    --load \
+    .
+done
+
+## binary build command
+go build -o bin/attendance ./attendance
+go build -o bin/auth ./auth
+go build -o bin/eta ./eta
+go build -o bin/fleet ./fleet
+go build -o bin/report ./report
+go build -o bin/ingester ./ingester
+go build -o bin/notifier ./notifier
+go build -o bin/asynctask ./asynctask
+go build -o bin/videoevents ./videoevents
+go build -o bin/gateway ./gateway
+go build -o bin/restapi ./restapi

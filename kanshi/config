@@ -1,0 +1,38 @@
+profile work2 {
+    output "Samsung Electric Company LS24D300G H1AK500000" mode 1920x1080@100Hz position 0,0 enable
+    output eDP-1 disable
+}
+
+profile work {
+    output "Dell Inc. DELL S2421HN 59BKM04" mode 1920x1080@74.973Hz position 0,0 enable
+    output eDP-1 disable
+}
+profile work3 {
+    output "Dell Inc. DELL S2421HN 7DBKM04" mode 1920x1080@74.973Hz position 0,0 enable
+    output eDP-1 disable
+ 
+}
+
+profile home {
+    output "Acer Technologies EK220Q H3 1330055113W01" mode 1920x1080@100Hz position 0,0 enable
+    output eDP-1 disable
+}
+
+profile {
+    output eDP-1 mode 1366x768@60.059Hz position 0,0 enable
+}
+
+profile work4 {
+    output "Samsung Electric Company S24R35x H4TR400276" mode 1920x1080@74.973Hz position 0,0 enable
+    output eDP-1 disable
+}
+profile work5 {
+    output "Lenovo Group Limited L24i-30 UPB4NZTA" mode 1920x1080@74.973Hz position 0,0 enable
+    output eDP-1 disable
+}
+
+profile work6 {
+   output "PNP(IWB) PC Monitor Unknown" mode 3840x2160@30.00Hz position 0,0 enable
+   output eDP-1 disable
+}
+
