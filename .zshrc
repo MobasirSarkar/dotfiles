@@ -1,5 +1,9 @@
 export LANG="en_US.UTF-8"
 
+# Go
+export GOPATH="$HOME/go"
+[ -d "$GOPATH" ] && PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -38,14 +42,38 @@ for p in emulator platform-tools; do
 done
 
 # Editor
-export EDITOR="nvim"
+# export EDITOR="nvim"
 
 # Custom env
 [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
 
-# Go
-export GOPATH="$HOME/go"
-[ -d "$GOPATH" ] && PATH="$PATH:/usr/local/go/bin:$GOPATH/bin"
 
 alias vi="nvim"
 alias ls="eza --icons"
+alias bolt-beta='TERM=xterm-256color tsh ssh rc-user@bolt-do-revamp-beta'
+alias bolt-staging='TERM=xterm-256color tsh ssh rc-user@bolt-do-revamp-staging'
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=sway
+export PATH=$HOME/.local/bin:$PATH
+export TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP=1
+export TERMINUS_ALLOW_UNSUPPORTED_NEWER_PHP=1
+
+
+# bun completions
+[ -s "/home/mobasir-rc/.bun/_bun" ] && source "/home/mobasir-rc/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias claude-mem='/home/mobasir-rc/.bun/bin/bun "/home/mobasir-rc/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# opencode
+export PATH=/home/mobasir-rc/.opencode/bin:$PATH
